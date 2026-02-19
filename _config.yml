@@ -9,27 +9,26 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "Your Name / Site Title"
+title                    : "Sahil Bhola, Ph.D. Candidate"
 title_separator          : "-"
-name                     : &name "Your Name"
-description              : &description "personal description"
-url                      : https://academicpages.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
+name : &name "Sahil Bhola"
+description : &description "Ph.D. Candidate | Scientific Machine Learning | Generative Modeling | Numerical Reliability"
+url : "https://sahilbhola14.github.io"
+repository : "sahilbhola14/sahilbhola14.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
-  # Biographic information
-  avatar           : "profile.png"
-  name             : "Your Sidebar Name"
-  pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
-  uri              : # URL
-  email            : "none@example.org" 
+  avatar : "/images/profile.png"
+  name : "Sahil Bhola"
+  bio : "Ph.D. Candidate at the University of Michigan working on scientific machine learning, generative models for PDEs, and numerical reliability under mixed precision."
+  location : "Ann Arbor, Michigan"
+  employer : "University of Michigan"
+  email : "sahilbhola@umich.edu"
+
+  googlescholar : "https://scholar.google.com/citations?user=ggpPX6cAAAAJ&hl=en&oi=ao"
 
   # Academic websites
   academia         : # URL
