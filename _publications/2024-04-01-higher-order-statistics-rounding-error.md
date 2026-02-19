@@ -1,3 +1,4 @@
+---
 title: "Exploiting Higher-Order Statistics for Robust Probabilistic Rounding Error Analysis"
 
 collection: publications
@@ -11,3 +12,4 @@ paperurl: "[https://arxiv.org/abs/2404.12556](https://arxiv.org/abs/2404.12556)"
 codeurl: "[https://github.com/sahilbhola14/FinUQ](https://github.com/sahilbhola14/FinUQ)"
 
 citation: "Bhola, S., & Duraisamy, K. (2024). Exploiting Higher-Order Statistics for Robust Probabilistic Rounding Error Analysis. arXiv:2404.12556."
+---
