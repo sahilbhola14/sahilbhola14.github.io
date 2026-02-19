@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a Ph.D. candidate in Aerospace Engineering at the University of Michigan, working with Prof. Karthik Duraisamy in the Multidisciplinary Design Optimization (MDO) Lab. My research lies at the intersection of scientific machine learning, numerical analysis, and high-performance computing.
+I am a Ph.D. candidate in Aerospace Engineering and Scientific Computing at the University of Michigan, working with Prof. Karthik Duraisamy in the Computational Aerosciences Lab. My research lies at the intersection of scientific machine learning, numerical analysis, and high-performance computing.
 
 My work focuses on developing generative models for physics-based systems — particularly flow-based and diffusion-inspired methods for probabilistic surrogate modeling of partial differential equations (PDEs). I am interested in learning structured representations of complex physical fields to enable fast, uncertainty-aware simulation and decision-making in computational science and engineering.
 
