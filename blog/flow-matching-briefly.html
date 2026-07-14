@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flow Matching, Briefly | Sahil Bhola</title>
+  <meta name="description" content="A short derivation of the probability flow ODE behind flow matching, and why it is convenient for building generative models over PDE fields.">
+  <link rel="stylesheet" href="../style.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <main class="page">
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="../index.html">Sahil Bhola</a>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="../talks.html">Research</a>
+          <a href="../more.html">CV</a>
+          <a href="../blog.html" aria-current="page">Blog</a>
+        </div>
+      </nav>
+    </header>
+
+    <article class="section post reveal">
+      <div class="post-header">
+        <span class="eyebrow">July 14, 2026 &middot; 6 min read</span>
+        <h1>Flow Matching, Briefly</h1>
+      </div>
+
+      <div class="post-body section-copy">
+        <p>
+          Flow matching has become a convenient alternative to score-based diffusion for building generative models,
+          including the flow-matching neural operators I use for multi-fidelity PDE surrogates. This post is a short,
+          self-contained derivation of the core idea: a way to train a continuous normalizing flow without simulating
+          it during training.
+        </p>
+
+        <h2>The probability flow ODE</h2>
+        <p>
+          We want to transport samples from a simple base density \( p_0 \) (e.g. a standard Gaussian) to a target
+          data density \( p_1 \). Consider a time-dependent vector field \( v_t(x) \) for \( t \in [0, 1] \) that
+          generates a flow \( \phi_t \) via the ordinary differential equation
+        </p>
+        \[
+          \frac{d}{dt}\phi_t(x) = v_t\big(\phi_t(x)\big), \qquad \phi_0(x) = x.
+        \]
+        <p>
+          If \( x_0 \sim p_0 \) and we push it forward through \( \phi_t \), the resulting density \( p_t \) obeys the
+          continuity equation
+        </p>
+        \[
+          \frac{\partial p_t}{\partial t} + \nabla \cdot \big(p_t v_t\big) = 0.
+        \]
+        <p>
+          Any \( v_t \) satisfying this equation with \( p_1 \) matching the data distribution at \( t = 1 \) is a
+          valid generative model. The trouble is that, in general, we do not know \( v_t \) in closed form.
+        </p>
+
+        <h2>Conditional flow matching</h2>
+        <p>
+          The key trick, due to Lipman et al. (2023), is to define a simple conditional path between an individual
+          data point \( x_1 \) and noise, then show that regressing onto the conditional vector field recovers the
+          correct marginal vector field in expectation. A common choice is the linear (optimal-transport) path
+        </p>
+        \[
+          x_t = (1 - t)\, x_0 + t\, x_1, \qquad x_0 \sim \mathcal{N}(0, I),
+        \]
+        <p>whose conditional velocity is simply \( \dot{x}_t = x_1 - x_0 \). The training objective is then</p>
+        \[
+          \mathcal{L}(\theta) = \mathbb{E}_{t,\, x_0,\, x_1} \Big[\, \big\| v_\theta(x_t, t) - (x_1 - x_0) \big\|^2 \,\Big],
+        \]
+        <p>
+          a plain regression loss &mdash; no simulation of the ODE and no score matching are required during training.
+          At sample time, integrating \( v_\theta \) from \( t=0 \) to \( t=1 \) with an off-the-shelf ODE solver
+          pushes noise samples to the data distribution.
+        </p>
+
+        <h2>Why this is useful for PDE surrogates</h2>
+        <p>
+          Replacing \( x \) with a discretized PDE field (or a fidelity-residual between a low- and high-fidelity
+          solution) turns the same machinery into a resolution-invariant generative model for physical fields. The
+          conditional objective above is what makes training tractable at the resolutions we care about, since it
+          avoids backpropagating through an ODE solver.
+        </p>
+
+        <pre><code># minimal conditional flow-matching loss, PyTorch-style
+def cfm_loss(v_theta, x0, x1):
+    t = torch.rand(x0.shape[0], device=x0.device)
+    t_ = t.view(-1, *([1] * (x0.dim() - 1)))
+    xt = (1 - t_) * x0 + t_ * x1
+    target = x1 - x0
+    return ((v_theta(xt, t) - target) ** 2).mean()</code></pre>
+
+        <p>
+          See <a href="../talks.html">Research</a> for how this shows up in practice in the multi-fidelity manifold
+          work.
+        </p>
+      </div>
+
+      <div class="post-footer">
+        <a href="../blog.html">&larr; Back to all posts</a>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

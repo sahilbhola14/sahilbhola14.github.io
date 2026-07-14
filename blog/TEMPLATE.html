@@ -1,0 +1,80 @@
+<!--
+  NEW POST CHECKLIST
+  1. Duplicate this file as blog/your-post-slug.html (lowercase, hyphenated).
+  2. Replace the <title>, the description meta tag, the eyebrow date/read-time,
+     the <h1>, and everything inside <div class="post-body">.
+  3. Write math with standard LaTeX delimiters:
+       inline:  \( e^{i\pi} + 1 = 0 \)
+       display: \[ \nabla \cdot \mathbf{u} = 0 \]
+     MathJax (loaded below) renders both automatically. No build step needed.
+  4. Code blocks: <pre><code>...</code></pre>.
+  5. Add an <article class="panel post-item"> entry linking to your new file
+     on blog.html, above the other posts (newest first).
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Title | Sahil Bhola</title>
+  <meta name="description" content="One-sentence summary of the post.">
+  <link rel="stylesheet" href="../style.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <main class="page">
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="../index.html">Sahil Bhola</a>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="../talks.html">Research</a>
+          <a href="../more.html">CV</a>
+          <a href="../blog.html" aria-current="page">Blog</a>
+        </div>
+      </nav>
+    </header>
+
+    <article class="section post reveal">
+      <div class="post-header">
+        <span class="eyebrow">Month Day, Year &middot; N min read</span>
+        <h1>Post Title</h1>
+      </div>
+
+      <div class="post-body section-copy">
+        <p>
+          Opening paragraph goes here.
+        </p>
+
+        <p>
+          Inline math example: \( f(x) = \int_0^x g(t)\, dt \).
+        </p>
+
+        <p>Display math example:</p>
+        \[
+          \nabla \cdot \mathbf{u} = 0
+        \]
+
+        <pre><code>def example():
+    return "code blocks work too"</code></pre>
+
+        <p>
+          Closing paragraph goes here.
+        </p>
+      </div>
+
+      <div class="post-footer">
+        <a href="../blog.html">&larr; Back to all posts</a>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
