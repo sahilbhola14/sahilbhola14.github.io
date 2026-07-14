@@ -6,7 +6,7 @@
   <title>Sahil Bhola</title>
   <meta
     name="description"
-    content="Academic-style personal website for Sahil Bhola with selected work, links, and current updates."
+    content="Sahil Bhola is a Ph.D. candidate in Aerospace Engineering and Scientific Computing at the University of Michigan."
   >
   <link rel="stylesheet" href="style.css">
 </head>
@@ -17,9 +17,9 @@
         <a class="brand" href="index.html">Sahil Bhola</a>
         <div class="nav-links">
           <a href="index.html" aria-current="page">Home</a>
-          <a href="talks.html">Talks</a>
+          <a href="talks.html">Research</a>
           <a href="more.html">More</a>
-          <a href="files/Sahil_Bhola_CV.pdf">CV</a>
+          <a href="files/cv/cv.tex">CV Source</a>
         </div>
       </nav>
     </header>
@@ -29,16 +29,16 @@
         <span class="eyebrow">Personal Site</span>
         <h1>Sahil Bhola</h1>
         <p class="lead">
-          I build research-driven software and clear technical experiences. This homepage follows the compact academic
-          portfolio pattern: direct bio, visible links, and work-first sections.
+          Ph.D. candidate in Aerospace Engineering and Scientific Computing at the University of Michigan, specializing
+          in generative models, rounding error analysis, and machine learning for physics-based applications.
         </p>
         <p class="lead">
-          Drop in your real bio, current role, affiliation, and publication details. The layout is already split into
-          the same kind of reusable folder structure you outlined.
+          My research spans probabilistic PDE surrogates, Bayesian experimental design, scientific machine learning,
+          and mixed-precision numerical methods for high-performance computing.
         </p>
         <ul class="link-row">
           <li><a href="mailto:sbhola@umich.edu">Email</a></li>
-          <li><a href="files/Sahil_Bhola_CV.pdf">CV</a></li>
+          <li><a href="files/cv/cv.tex">CV Source</a></li>
           <li><a href="https://github.com/sahilbhola14">GitHub</a></li>
           <li><a href="https://www.linkedin.com/in/bholasahil/">LinkedIn</a></li>
           <li><a href="https://scholar.google.com/citations?user=ggpPX6cAAAAJ&hl=en&oi=ao">Scholar</a></li>
@@ -49,7 +49,7 @@
         <div class="profile-frame">
           <img src="images/profile.jpg" alt="Portrait of Sahil Bhola">
         </div>
-        <div class="profile-note">Place your headshot at <code>images/profile.jpg</code></div>
+        <div class="profile-note">Add your headshot at <code>images/profile.jpg</code></div>
       </aside>
     </section>
 
@@ -60,13 +60,14 @@
       </div>
       <div class="section-copy">
         <p>
-          This version is organized the way you described: shared styles in <code>style.css</code>, a homepage in
-          <code>index.html</code>, secondary pages in <code>talks.html</code> and <code>more.html</code>, image assets
-          under <code>images/</code>, and documents under <code>files/</code>.
+          I am a doctoral researcher in the Computational Aerosciences Lab at Michigan, advised by Prof. Karthik
+          Duraisamy. My work focuses on probabilistic scientific machine learning, including flow-matching neural
+          operators for multi-fidelity PDE learning and information-theoretic methods for uncertainty-aware inference.
         </p>
         <p>
-          That structure scales better than a single file because you can keep content pages small while maintaining one
-          visual system across the site.
+          Previously, I worked with Prof. Eric Johnsen on cavitation and wall-impact modeling, and I interned at
+          Argonne National Laboratory with Prof. Romit Maulik on multi-fidelity reinforcement learning for shape
+          optimization.
         </p>
       </div>
     </section>
@@ -78,12 +79,12 @@
       </div>
       <div class="news-list">
         <article class="news-item">
-          <div class="news-date">Jul 2026</div>
-          <div>Refactored homepage into a reusable multi-file academic site structure.</div>
+          <div class="news-date">2026</div>
+          <div>Accepted at AI&amp;PDE at ICLR: <em>Probabilistic Residual Transport between Multi-Fidelity Manifolds</em>.</div>
         </article>
         <article class="news-item">
-          <div class="news-date">Next</div>
-          <div>Add your real profile photo, paper thumbnails, CV PDF, and external links.</div>
+          <div class="news-date">2025</div>
+          <div>Submitted <em>Flow-matching Operators for Residual-Augmented Probabilistic Learning of Partial Differential Equations</em> to SIAM Journal on Scientific Computing.</div>
         </article>
       </div>
     </section>
@@ -96,38 +97,35 @@
       <div class="cards">
         <article class="card">
           <div class="thumb-frame">
-            <img src="images/paper1.png" alt="Preview image for project one">
+            <img src="images/paper1.png" alt="Preview image for probabilistic residual transport">
           </div>
           <div>
-            <h3>Project or Paper Title</h3>
-            <div class="meta">Your Name, Collaborator Name • Venue • 2026</div>
+            <h3>Probabilistic Residual Transport between Multi-Fidelity Manifolds</h3>
+            <div class="meta">Sahil Bhola and Karthik Duraisamy • AI&amp;PDE at ICLR • 2026</div>
             <p>
-              Replace this with a concise summary of the work, similar to academic homepages that foreground the result
-              and the technical contribution in one or two sentences.
+              A resolution-invariant flow-matching neural operator for probabilistic PDE surrogates that learns
+              low-to-high fidelity residual structure with calibrated uncertainty.
             </p>
             <div class="inline-links">
-              <a href="#">Project page</a>
-              <a href="#">Paper</a>
-              <a href="#">Code</a>
+              <a href="https://openreview.net/forum?id=fcBMLJtCoc">OpenReview</a>
+              <a href="https://arxiv.org/pdf/2512.12749">arXiv</a>
             </div>
           </div>
         </article>
 
         <article class="card">
           <div class="thumb-frame">
-            <img src="images/paper2.png" alt="Preview image for project two">
+            <img src="images/paper2.png" alt="Preview image for rounding error analysis">
           </div>
           <div>
-            <h3>Another Highlighted Project</h3>
-            <div class="meta">Your Name • Research or Engineering • 2025</div>
+            <h3>Bias- and Variance-Aware Probabilistic Rounding Error Analysis</h3>
+            <div class="meta">Sahil Bhola and Karthik Duraisamy • Scientific Computing • 2024</div>
             <p>
-              Add as many entries as you want with the same card pattern. The images live in <code>images/</code> and
-              all the page styling stays centralized in <code>style.css</code>.
+              A probabilistic framework for floating-point error analysis that improves mixed-precision error estimates
+              for Tensor Cores, random vector dot products, and stochastic boundary value problems.
             </p>
             <div class="inline-links">
-              <a href="#">Demo</a>
-              <a href="#">Repository</a>
-              <a href="#">Notes</a>
+              <a href="https://arxiv.org/abs/2404.12556">Paper</a>
             </div>
           </div>
         </article>
@@ -135,8 +133,8 @@
     </section>
 
     <footer class="site-footer reveal delay-3">
-      Update the asset files at <code>images/profile.jpg</code>, <code>images/paper1.png</code>,
-      <code>images/paper2.png</code>, and <code>files/Sahil_Bhola_CV.pdf</code>.
+      The site content is now populated from <code>files/cv/cv.tex</code>. Add image assets under <code>images/</code>
+      to replace the current placeholders.
     </footer>
   </main>
 </body>
