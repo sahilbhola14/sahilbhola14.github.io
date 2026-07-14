@@ -6,404 +6,50 @@
   <title>Sahil Bhola</title>
   <meta
     name="description"
-    content="Academic-style personal website for Sahil Bhola with profile, links, research, projects, and writing."
+    content="Academic-style personal website for Sahil Bhola with selected work, links, and current updates."
   >
-  <style>
-    :root {
-      --bg: #f6f1e8;
-      --paper: rgba(255, 252, 246, 0.9);
-      --ink: #1b1a17;
-      --muted: #5f584e;
-      --line: rgba(27, 26, 23, 0.14);
-      --accent: #a44324;
-      --accent-soft: rgba(164, 67, 36, 0.1);
-      --shadow: 0 24px 60px rgba(55, 37, 17, 0.08);
-      --max: 1020px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, "URW Palladio L", serif;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at top left, rgba(164, 67, 36, 0.12), transparent 28%),
-        radial-gradient(circle at top right, rgba(72, 104, 84, 0.13), transparent 24%),
-        linear-gradient(180deg, #f8f4ed 0%, #f2ebdf 100%);
-      line-height: 1.65;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-      text-underline-offset: 0.18em;
-    }
-
-    .page {
-      width: min(calc(100% - 2rem), var(--max));
-      margin: 2.5rem auto;
-      background: var(--paper);
-      border: 1px solid rgba(255, 255, 255, 0.65);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
-    }
-
-    .masthead {
-      display: grid;
-      grid-template-columns: minmax(0, 1.75fr) minmax(220px, 0.9fr);
-      gap: 2rem;
-      padding: 3rem;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 0.8rem;
-      padding: 0.24rem 0.55rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      background: rgba(255, 255, 255, 0.45);
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-      margin-top: 0;
-    }
-
-    h1 {
-      margin-bottom: 1rem;
-      font-size: clamp(2.5rem, 4vw, 4.25rem);
-      line-height: 0.98;
-      letter-spacing: -0.04em;
-    }
-
-    .lead {
-      max-width: 40rem;
-      margin-bottom: 1.25rem;
-      font-size: 1.08rem;
-      color: var(--muted);
-    }
-
-    .link-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem 1rem;
-      margin: 1.5rem 0 0;
-      padding: 0;
-      list-style: none;
-      font-size: 0.98rem;
-    }
-
-    .link-row a {
-      font-weight: 600;
-    }
-
-    .portrait {
-      position: relative;
-      display: grid;
-      place-items: center;
-      min-height: 320px;
-      border-radius: 28px;
-      overflow: hidden;
-      background:
-        linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(234, 219, 194, 0.88)),
-        linear-gradient(180deg, rgba(164, 67, 36, 0.2), rgba(49, 67, 57, 0.18));
-      border: 1px solid rgba(255, 255, 255, 0.72);
-    }
-
-    .portrait::before,
-    .portrait::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      filter: blur(2px);
-    }
-
-    .portrait::before {
-      inset: auto auto 16% -10%;
-      width: 180px;
-      height: 180px;
-      background: rgba(164, 67, 36, 0.12);
-    }
-
-    .portrait::after {
-      inset: 10% -8% auto auto;
-      width: 130px;
-      height: 130px;
-      background: rgba(72, 104, 84, 0.16);
-    }
-
-    .portrait-badge {
-      position: relative;
-      width: 170px;
-      height: 170px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: linear-gradient(180deg, #fffdf8, #f0e5d3);
-      border: 1px solid rgba(27, 26, 23, 0.08);
-      box-shadow: 0 18px 40px rgba(55, 37, 17, 0.14);
-      font-size: 4rem;
-      letter-spacing: -0.08em;
-    }
-
-    .portrait-note {
-      position: absolute;
-      right: 1rem;
-      bottom: 1rem;
-      padding: 0.45rem 0.7rem;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      color: var(--muted);
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(27, 26, 23, 0.08);
-    }
-
-    .section {
-      padding: 0 3rem 3rem;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.35rem;
-    }
-
-    .section-header h2 {
-      margin-bottom: 0;
-      font-size: 1.45rem;
-      letter-spacing: -0.03em;
-    }
-
-    .section-rule {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, var(--line), transparent);
-    }
-
-    .about {
-      max-width: 48rem;
-      color: var(--muted);
-    }
-
-    .news-list {
-      display: grid;
-      gap: 0.85rem;
-    }
-
-    .news-item {
-      display: grid;
-      grid-template-columns: 96px minmax(0, 1fr);
-      gap: 1rem;
-      padding: 0.95rem 1rem;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.55);
-    }
-
-    .news-date {
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
-
-    .cards {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .card {
-      display: grid;
-      grid-template-columns: minmax(130px, 180px) minmax(0, 1fr);
-      gap: 1.25rem;
-      align-items: start;
-      padding: 1rem;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.58);
-      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-    }
-
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(55, 37, 17, 0.08);
-      border-color: rgba(164, 67, 36, 0.26);
-    }
-
-    .thumb {
-      aspect-ratio: 1.35 / 1;
-      border-radius: 18px;
-      background:
-        linear-gradient(145deg, rgba(164, 67, 36, 0.92), rgba(55, 37, 17, 0.92)),
-        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.24), transparent 40%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .thumb.alt {
-      background: linear-gradient(145deg, rgba(72, 104, 84, 0.95), rgba(36, 52, 45, 0.95));
-    }
-
-    .thumb::after {
-      content: "";
-      position: absolute;
-      inset: 12%;
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      border-radius: 14px;
-    }
-
-    .card h3 {
-      margin-bottom: 0.3rem;
-      font-size: 1.18rem;
-      letter-spacing: -0.02em;
-    }
-
-    .meta {
-      margin-bottom: 0.55rem;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .card p {
-      margin-bottom: 0.7rem;
-      color: var(--muted);
-    }
-
-    .inline-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem 0.95rem;
-      font-size: 0.95rem;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .panel {
-      padding: 1.15rem;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.5);
-    }
-
-    .panel h3 {
-      margin-bottom: 0.6rem;
-      font-size: 1.06rem;
-    }
-
-    .panel p,
-    .panel li {
-      color: var(--muted);
-    }
-
-    .panel ul {
-      margin: 0;
-      padding-left: 1.15rem;
-    }
-
-    footer {
-      padding: 0 3rem 2.5rem;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      animation: rise 600ms ease forwards;
-    }
-
-    .reveal.delay-1 { animation-delay: 90ms; }
-    .reveal.delay-2 { animation-delay: 180ms; }
-    .reveal.delay-3 { animation-delay: 270ms; }
-
-    @keyframes rise {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 860px) {
-      .masthead,
-      .split,
-      .card {
-        grid-template-columns: 1fr;
-      }
-
-      .portrait {
-        min-height: 240px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .page {
-        width: min(calc(100% - 1rem), var(--max));
-        margin: 0.5rem auto 1rem;
-      }
-
-      .masthead,
-      .section,
-      footer {
-        padding-left: 1.2rem;
-        padding-right: 1.2rem;
-      }
-
-      .masthead {
-        padding-top: 1.6rem;
-      }
-
-      .news-item {
-        grid-template-columns: 1fr;
-        gap: 0.35rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="page">
-    <section class="masthead">
-      <div class="reveal">
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="index.html">Sahil Bhola</a>
+        <div class="nav-links">
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="talks.html">Talks</a>
+          <a href="more.html">More</a>
+          <a href="files/Sahil_Bhola_CV.pdf">CV</a>
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero reveal">
+      <div>
         <span class="eyebrow">Personal Site</span>
         <h1>Sahil Bhola</h1>
         <p class="lead">
-          I build research-driven software and thoughtful web experiences. This page is designed in the spirit of the
-          compact academic homepages that foreground work, writing, and clear contact points.
+          I build research-driven software and clear technical experiences. This homepage follows the compact academic
+          portfolio pattern: direct bio, visible links, and work-first sections.
         </p>
         <p class="lead">
-          Replace the text below with your actual bio, institution, resume link, project links, and publication list.
-          The layout is already set up for that style of site.
+          Drop in your real bio, current role, affiliation, and publication details. The layout is already split into
+          the same kind of reusable folder structure you outlined.
         </p>
         <ul class="link-row">
           <li><a href="mailto:you@example.com">Email</a></li>
-          <li><a href="#">CV</a></li>
+          <li><a href="files/Sahil_Bhola_CV.pdf">CV</a></li>
           <li><a href="#">GitHub</a></li>
           <li><a href="#">LinkedIn</a></li>
           <li><a href="#">Scholar</a></li>
-          <li><a href="#research">Research</a></li>
         </ul>
       </div>
 
-      <aside class="portrait reveal delay-1" aria-label="Profile placeholder">
-        <div class="portrait-badge">SB</div>
-        <div class="portrait-note">Add your headshot here</div>
+      <aside class="profile-card reveal delay-1">
+        <div class="profile-frame">
+          <img src="images/profile.jpg" alt="Portrait of Sahil Bhola">
+        </div>
+        <div class="profile-note">Place your headshot at <code>images/profile.jpg</code></div>
       </aside>
     </section>
 
@@ -412,15 +58,15 @@
         <h2>About</h2>
         <div class="section-rule"></div>
       </div>
-      <div class="about">
+      <div class="section-copy">
         <p>
-          This template follows the overall tone of <a href="https://jonbarron.info/">jonbarron.info</a>: a direct
-          introductory block, simple profile links, and long-form sections for selected work. It is not a copy of that
-          site, but it borrows the same academic portfolio logic and adapts it into a warmer editorial design.
+          This version is organized the way you described: shared styles in <code>style.css</code>, a homepage in
+          <code>index.html</code>, secondary pages in <code>talks.html</code> and <code>more.html</code>, image assets
+          under <code>images/</code>, and documents under <code>files/</code>.
         </p>
         <p>
-          If you want, I can next swap this placeholder content for your real information and add a proper headshot,
-          publication list, talks, internships, or project pages.
+          That structure scales better than a single file because you can keep content pages small while maintaining one
+          visual system across the site.
         </p>
       </div>
     </section>
@@ -433,29 +79,31 @@
       <div class="news-list">
         <article class="news-item">
           <div class="news-date">Jul 2026</div>
-          <div>Homepage redesign prepared with a research-first layout and responsive single-page structure.</div>
+          <div>Refactored homepage into a reusable multi-file academic site structure.</div>
         </article>
         <article class="news-item">
-          <div class="news-date">Update</div>
-          <div>Replace these entries with recent publications, internships, awards, talks, or releases.</div>
+          <div class="news-date">Next</div>
+          <div>Add your real profile photo, paper thumbnails, CV PDF, and external links.</div>
         </article>
       </div>
     </section>
 
-    <section class="section reveal delay-2" id="research">
+    <section class="section reveal delay-2">
       <div class="section-header">
         <h2>Selected Work</h2>
         <div class="section-rule"></div>
       </div>
       <div class="cards">
         <article class="card">
-          <div class="thumb" aria-hidden="true"></div>
+          <div class="thumb-frame">
+            <img src="images/paper1.png" alt="Preview image for project one">
+          </div>
           <div>
             <h3>Project or Paper Title</h3>
-            <div class="meta">Your Name, Collaborator Name • Venue or Context • 2026</div>
+            <div class="meta">Your Name, Collaborator Name • Venue • 2026</div>
             <p>
-              Use this space for the one-sentence explanation Jon Barron-style sites do well: what the project is, why
-              it matters, and what was notable about the result.
+              Replace this with a concise summary of the work, similar to academic homepages that foreground the result
+              and the technical contribution in one or two sentences.
             </p>
             <div class="inline-links">
               <a href="#">Project page</a>
@@ -466,13 +114,15 @@
         </article>
 
         <article class="card">
-          <div class="thumb alt" aria-hidden="true"></div>
+          <div class="thumb-frame">
+            <img src="images/paper2.png" alt="Preview image for project two">
+          </div>
           <div>
             <h3>Another Highlighted Project</h3>
-            <div class="meta">Your Name • Side Project, Research, or Startup Work • 2025</div>
+            <div class="meta">Your Name • Research or Engineering • 2025</div>
             <p>
-              The layout supports a long list of entries, so you can keep adding projects below without changing the
-              overall structure of the page.
+              Add as many entries as you want with the same card pattern. The images live in <code>images/</code> and
+              all the page styling stays centralized in <code>style.css</code>.
             </p>
             <div class="inline-links">
               <a href="#">Demo</a>
@@ -481,54 +131,12 @@
             </div>
           </div>
         </article>
-
-        <article class="card">
-          <div class="thumb" aria-hidden="true"></div>
-          <div>
-            <h3>Writing, Tooling, or Open Source</h3>
-            <div class="meta">Independent Work • Ongoing</div>
-            <p>
-              This third slot works well for a substantial open-source project, a thesis page, or a technical essay
-              series if your work spans both research and engineering.
-            </p>
-            <div class="inline-links">
-              <a href="#">Read more</a>
-              <a href="#">Source</a>
-            </div>
-          </div>
-        </article>
       </div>
     </section>
 
-    <section class="section reveal delay-3">
-      <div class="section-header">
-        <h2>More</h2>
-        <div class="section-rule"></div>
-      </div>
-      <div class="split">
-        <article class="panel">
-          <h3>Experience</h3>
-          <ul>
-            <li>Current role, lab, startup, or school program.</li>
-            <li>Previous internship, assistantship, or notable collaboration.</li>
-            <li>Short list format keeps this section scannable.</li>
-          </ul>
-        </article>
-
-        <article class="panel">
-          <h3>Writing and Talks</h3>
-          <ul>
-            <li><a href="#">Talk title or invited session</a></li>
-            <li><a href="#">Essay, blog post, or publication link</a></li>
-            <li><a href="#">Workshop, tutorial, or presentation deck</a></li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <footer class="reveal delay-3">
-      Built as a single-file static homepage. Update the copy, links, and image placeholder in <code>index.html</code>
-      to personalize it.
+    <footer class="site-footer reveal delay-3">
+      Update the asset files at <code>images/profile.jpg</code>, <code>images/paper1.png</code>,
+      <code>images/paper2.png</code>, and <code>files/Sahil_Bhola_CV.pdf</code>.
     </footer>
   </main>
 </body>
