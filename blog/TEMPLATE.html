@@ -18,6 +18,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Post Title | Sahil Bhola</title>
   <meta name="description" content="One-sentence summary of the post.">
+  <script>
+    (function () {
+      var theme = localStorage.getItem("theme");
+      if (theme === "light" || theme === "dark") {
+        document.documentElement.setAttribute("data-theme", theme);
+      }
+    }());
+  </script>
   <link rel="stylesheet" href="../style.css">
   <script>
     window.MathJax = {
@@ -33,11 +41,14 @@
   <header class="site-header">
     <nav class="nav">
       <a class="brand" href="../index.html">Sahil Bhola</a>
-      <div class="nav-links">
-        <a href="../index.html">Home</a>
-        <a href="../talks.html">Research</a>
-        <a href="../more.html">CV</a>
-        <a href="../blog.html" aria-current="page">Blog</a>
+      <div class="nav-actions">
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="../talks.html">Research</a>
+          <a href="../more.html">CV</a>
+          <a href="../blog.html" aria-current="page">Blog</a>
+        </div>
+        <button class="theme-toggle" type="button" aria-label="Toggle color theme">Dark mode</button>
       </div>
     </nav>
   </header>
@@ -76,5 +87,28 @@
       </div>
     </article>
   </main>
+  <script>
+    (function () {
+      var button = document.querySelector(".theme-toggle");
+      if (!button) return;
+      var root = document.documentElement;
+      function resolvedTheme() {
+        if (root.dataset.theme) return root.dataset.theme;
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      function syncLabel() {
+        var theme = resolvedTheme();
+        button.textContent = theme === "dark" ? "Light mode" : "Dark mode";
+        button.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+      }
+      button.addEventListener("click", function () {
+        var next = resolvedTheme() === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+        syncLabel();
+      });
+      syncLabel();
+    }());
+  </script>
 </body>
 </html>

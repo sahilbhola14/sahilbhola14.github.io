@@ -16,6 +16,7 @@
 }
 
 html {
+  color-scheme: light dark;
   scroll-behavior: smooth;
 }
 
@@ -76,6 +77,12 @@ code {
   color: var(--ink);
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .nav-links {
   display: flex;
   flex-wrap: wrap;
@@ -85,6 +92,27 @@ code {
   border-radius: 999px;
   background: var(--surface-strong);
   box-shadow: 0 12px 28px rgba(28, 58, 95, 0.08);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding: 0.55rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-strong);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(28, 58, 95, 0.08);
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(45, 111, 183, 0.09);
 }
 
 .nav-links a {
@@ -432,8 +460,62 @@ h2 {
   }
 }
 
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #08111c;
+  --surface: rgba(12, 24, 39, 0.86);
+  --surface-strong: rgba(17, 31, 49, 0.94);
+  --ink: #edf4ff;
+  --muted: #a7bad3;
+  --line: rgba(187, 213, 245, 0.14);
+  --accent: #7ab6ff;
+  --accent-strong: #b2d3ff;
+  --shadow: 0 24px 56px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] body {
+  background:
+    radial-gradient(circle at top left, rgba(75, 130, 255, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(74, 173, 255, 0.12), transparent 24%),
+    linear-gradient(180deg, #0c1726 0%, #08111c 55%, #060d16 100%);
+  background-attachment: fixed;
+}
+
+html[data-theme="dark"] .site-header {
+  background: linear-gradient(180deg, rgba(8, 17, 28, 0.96), rgba(8, 17, 28, 0.82));
+}
+
+html[data-theme="dark"] .nav-links {
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.24);
+}
+
+html[data-theme="dark"] .nav-links a:hover,
+html[data-theme="dark"] .theme-toggle:hover {
+  background: rgba(122, 182, 255, 0.12);
+}
+
+html[data-theme="dark"] .nav-links a[aria-current="page"] {
+  background: linear-gradient(135deg, rgba(54, 108, 189, 0.5), rgba(122, 182, 255, 0.18));
+  box-shadow: inset 0 0 0 1px rgba(122, 182, 255, 0.22);
+}
+
+html[data-theme="dark"] .eyebrow {
+  background: rgba(20, 34, 52, 0.78);
+}
+
+html[data-theme="dark"] .profile-frame,
+html[data-theme="dark"] .thumb-frame {
+  background:
+    linear-gradient(145deg, rgba(43, 90, 163, 0.28), rgba(61, 137, 205, 0.18)),
+    #102035;
+}
+
+html[data-theme="dark"] .post-body pre {
+  background: rgba(17, 31, 49, 0.88);
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  html:not([data-theme="light"]) {
     --bg: #08111c;
     --surface: rgba(12, 24, 39, 0.86);
     --surface-strong: rgba(17, 31, 49, 0.94);
@@ -445,7 +527,7 @@ h2 {
     --shadow: 0 24px 56px rgba(0, 0, 0, 0.35);
   }
 
-  body {
+  html:not([data-theme="light"]) body {
     background:
       radial-gradient(circle at top left, rgba(75, 130, 255, 0.18), transparent 28%),
       radial-gradient(circle at top right, rgba(74, 173, 255, 0.12), transparent 24%),
@@ -453,35 +535,36 @@ h2 {
     background-attachment: fixed;
   }
 
-  .site-header {
+  html:not([data-theme="light"]) .site-header {
     background: linear-gradient(180deg, rgba(8, 17, 28, 0.96), rgba(8, 17, 28, 0.82));
   }
 
-  .nav-links {
+  html:not([data-theme="light"]) .nav-links {
     box-shadow: 0 14px 32px rgba(0, 0, 0, 0.24);
   }
 
-  .nav-links a:hover {
+  html:not([data-theme="light"]) .nav-links a:hover,
+  html:not([data-theme="light"]) .theme-toggle:hover {
     background: rgba(122, 182, 255, 0.12);
   }
 
-  .nav-links a[aria-current="page"] {
+  html:not([data-theme="light"]) .nav-links a[aria-current="page"] {
     background: linear-gradient(135deg, rgba(54, 108, 189, 0.5), rgba(122, 182, 255, 0.18));
     box-shadow: inset 0 0 0 1px rgba(122, 182, 255, 0.22);
   }
 
-  .eyebrow {
+  html:not([data-theme="light"]) .eyebrow {
     background: rgba(20, 34, 52, 0.78);
   }
 
-  .profile-frame,
-  .thumb-frame {
+  html:not([data-theme="light"]) .profile-frame,
+  html:not([data-theme="light"]) .thumb-frame {
     background:
       linear-gradient(145deg, rgba(43, 90, 163, 0.28), rgba(61, 137, 205, 0.18)),
       #102035;
   }
 
-  .post-body pre {
+  html:not([data-theme="light"]) .post-body pre {
     background: rgba(17, 31, 49, 0.88);
   }
 }
@@ -528,9 +611,19 @@ h2 {
     padding: 0.85rem 0;
   }
 
+  .nav-actions {
+    width: 100%;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
   .nav-links {
     width: 100%;
     border-radius: 24px;
+  }
+
+  .theme-toggle {
+    width: 100%;
   }
 
   .nav-links a {
