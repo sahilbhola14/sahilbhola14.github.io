@@ -310,6 +310,25 @@ h2 {
   transition: color 150ms ease;
 }
 
+.entry-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.entry-header h3 {
+  margin-bottom: 0.35rem;
+}
+
+.entry-meta {
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
 .card:hover h3,
 .panel:hover h3 {
   color: var(--accent-strong);
@@ -426,6 +445,16 @@ h2 {
 
   .card .thumb-frame {
     max-width: 260px;
+  }
+
+  .entry-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .entry-meta {
+    text-align: left;
   }
 }
 
