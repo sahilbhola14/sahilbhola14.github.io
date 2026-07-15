@@ -432,6 +432,60 @@ h2 {
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #08111c;
+    --surface: rgba(12, 24, 39, 0.86);
+    --surface-strong: rgba(17, 31, 49, 0.94);
+    --ink: #edf4ff;
+    --muted: #a7bad3;
+    --line: rgba(187, 213, 245, 0.14);
+    --accent: #7ab6ff;
+    --accent-strong: #b2d3ff;
+    --shadow: 0 24px 56px rgba(0, 0, 0, 0.35);
+  }
+
+  body {
+    background:
+      radial-gradient(circle at top left, rgba(75, 130, 255, 0.18), transparent 28%),
+      radial-gradient(circle at top right, rgba(74, 173, 255, 0.12), transparent 24%),
+      linear-gradient(180deg, #0c1726 0%, #08111c 55%, #060d16 100%);
+    background-attachment: fixed;
+  }
+
+  .site-header {
+    background: linear-gradient(180deg, rgba(8, 17, 28, 0.96), rgba(8, 17, 28, 0.82));
+  }
+
+  .nav-links {
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.24);
+  }
+
+  .nav-links a:hover {
+    background: rgba(122, 182, 255, 0.12);
+  }
+
+  .nav-links a[aria-current="page"] {
+    background: linear-gradient(135deg, rgba(54, 108, 189, 0.5), rgba(122, 182, 255, 0.18));
+    box-shadow: inset 0 0 0 1px rgba(122, 182, 255, 0.22);
+  }
+
+  .eyebrow {
+    background: rgba(20, 34, 52, 0.78);
+  }
+
+  .profile-frame,
+  .thumb-frame {
+    background:
+      linear-gradient(145deg, rgba(43, 90, 163, 0.28), rgba(61, 137, 205, 0.18)),
+      #102035;
+  }
+
+  .post-body pre {
+    background: rgba(17, 31, 49, 0.88);
+  }
+}
+
 @media (max-width: 860px) {
   .hero,
   .columns,
